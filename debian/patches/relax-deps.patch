@@ -1,0 +1,30 @@
+From: Reinhard Tartler <siretart@tauware.de>
+Date: Sat, 13 Jul 2024 08:22:13 -0400
+Subject: Relax dependencies
+
+---
+ Cargo.toml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+Index: aardvark-dns/Cargo.toml
+===================================================================
+--- aardvark-dns.orig/Cargo.toml
++++ aardvark-dns/Cargo.toml
+@@ -23,12 +23,12 @@ platforms = ["x86_64-unknown-linux-gnu",
+ # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+ 
+ [dependencies]
+-clap = { version = "~4.5.28", features = ["derive"] }
+-syslog = "^7.0.0"
++clap = { version = "~4.5.23", features = ["derive"] }
++syslog = "^6.0.0"
+ log = "0.4.25"
+-hickory-server = "0.24.2"
+-hickory-proto = { version = "0.24.2", features = ["tokio-runtime"] }
+-hickory-client = "0.24.2"
++hickory-server = "0.24.1"
++hickory-proto = { version = "0.24.1", features = ["tokio-runtime"] }
++hickory-client = "0.24.1"
+ futures-util = { version = "0.3.31", default-features = false }
+ tokio = { version = "1.43.0", features = ["macros", "rt-multi-thread", "net", "signal"] }
+ nix = { version = "0.29.0", features = ["fs", "signal", "net"] }

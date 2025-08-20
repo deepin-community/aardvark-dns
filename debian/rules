@@ -1,4 +1,19 @@
 #!/usr/bin/make -f
 
+# generate cargo-checksum file
+_mkchecksum = printf '{"package":"%s","files":{}}\n' \
+ $$(sha256sum $(or $2,$(dir $1)Cargo.toml) | grep -Po '^\S+') > $1;
+
 %:
-	dh $@
+	dh $@ --buildsystem cargo
+
+# actually run the testsuite, not just build it
+override_dh_auto_test:
+	dh_auto_test -v --buildsystem cargo -- test
+
+execute_before_dh_auto_configure:
+	$(call _mkchecksum,debian/cargo-checksum.json,Cargo.toml)
+
+execute_after_dh_install:
+	mkdir -vp debian/aardvark-dns/usr/lib
+	mv -v debian/aardvark-dns/usr/bin debian/aardvark-dns/usr/lib/podman

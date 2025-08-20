@@ -1,5 +1,131 @@
-template-repository (1.0-1) unstable; urgency=medium
+aardvark-dns (1.14.0-3) unstable; urgency=medium
 
-  * Initial release
+  * Fix autopkgtests: replace slirp4netns with dnsmasq, following
+    https://salsa.debian.org/debian/aardvark-dns/-/commit/e6ce7106602623
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Reinhard Tartler <siretart@tauware.de>  Fri, 21 Mar 2025 08:15:22 -0400
+
+aardvark-dns (1.14.0-2) unstable; urgency=medium
+
+  * Bump Standards Version
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 16 Mar 2025 16:42:12 -0400
+
+aardvark-dns (1.14.0-1) experimental; urgency=medium
+
+  * New upstream release
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 16 Mar 2025 08:14:13 -0400
+
+aardvark-dns (1.12.2-2) unstable; urgency=medium
+
+  [ Peter Michael Green ]
+  * Add patch for nix 0.29, Closes: #1085403
+
+ -- Reinhard Tartler <siretart@tauware.de>  Fri, 22 Nov 2024 14:26:51 -0500
+
+aardvark-dns (1.12.2-1) unstable; urgency=medium
+
+  * New upstream relase.
+  * Fixes: CVE-2024-8418: TCP connections where not handled correctly
+    which allowed a container to block dns queries for other clients on
+    the same network, Closes: #1080964
+  * Normalize patches with gbp pq
+  * Add autopkgtest that runs upstream integration tests
+
+ -- Reinhard Tartler <siretart@tauware.de>  Thu, 05 Sep 2024 20:50:47 -0400
+
+aardvark-dns (1.12.1-2) unstable; urgency=medium
+
+  * Upload to unstable
+  * Bump Standards-Version
+
+ -- Reinhard Tartler <siretart@tauware.de>  Mon, 02 Sep 2024 09:35:56 -0400
+
+aardvark-dns (1.12.1-1) experimental; urgency=medium
+
+  * New upstream release 1.12.1
+  * Refresh patches
+  * Addjust dependies:
+     - rust-arc-swap 1.6
+     - rust-flume
+     - rust-log
+  * Build against nix 0.27
+  * Build against tokio 1.35
+  * Tighten depends on netavark
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 31 Aug 2024 08:38:58 -0400
+
+aardvark-dns (1.9.0-2) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Reinhard Tartler <siretart@tauware.de>  Thu, 08 Aug 2024 07:46:41 -0400
+
+aardvark-dns (1.9.0-1) experimental; urgency=medium
+
+  * New upstream release: 1.9.0
+  * Compile against hickory-server (instead trust-dns)
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 13 Jul 2024 08:17:26 -0400
+    
+aardvark-dns (1.6.0-3) unstable; urgency=medium
+
+  * Compile against async-broadcast 0.7, Closes: #1076357
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 14 Jul 2024 23:42:04 -0400
+
+aardvark-dns (1.6.0-2) unstable; urgency=medium
+
+  * Fix test failure with rustc 1.72, Closes: #1073399
+
+ -- Reinhard Tartler <siretart@tauware.de>  Fri, 12 Jul 2024 08:49:05 -0400
+
+aardvark-dns (1.6.0-1) experimental; urgency=medium
+
+  * New upstream version
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 21 Apr 2024 08:06:39 -0400
+
+aardvark-dns (1.4.0-5) unstable; urgency=medium
+
+  * Build against clap version 4, Closes: #1040876, #1040877
+
+ -- Reinhard Tartler <siretart@tauware.de>  Wed, 06 Sep 2023 20:45:48 -0400
+
+aardvark-dns (1.4.0-4) unstable; urgency=medium
+
+  [ Peter Green ]
+  * Remove upper limit from cargo dependency on async-broadcast, to fix FTBFS
+    Closes: #1038148
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 18 Jun 2023 20:55:48 -0400
+
+aardvark-dns (1.4.0-3) unstable; urgency=medium
+
+  [ Peter Green ]
+  * Depend on non-virtual package librust-clap-3+derive-dev, Closes: #1028648
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 15 Jan 2023 02:05:56 -0500
+
+aardvark-dns (1.4.0-2) unstable; urgency=medium
+
+  * update dns-proto-server patch with upstream, verified to
+    actually work using instruction in linked bug, Closes: #1024980
+
+ -- Reinhard Tartler <siretart@tauware.de>  Mon, 09 Jan 2023 15:40:25 -0500
+
+aardvark-dns (1.4.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Fix package description, Closes: #1016767
+  * Run the testsuite
+  * tighten dependency on netavark
+
+ -- Reinhard Tartler <siretart@tauware.de>  Mon, 02 Jan 2023 10:36:17 -0500
+
+aardvark-dns (1.0.3-1) unstable; urgency=medium
+
+  * Initial release, Closes: #1014718
+
+ -- Reinhard Tartler <siretart@tauware.de>  Fri, 05 Aug 2022 00:00:30 +0200

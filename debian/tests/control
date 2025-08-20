@@ -1,0 +1,18 @@
+Test-Command: env AARDVARK=/usr/lib/podman/aardvark-dns NETAVARK=/usr/lib/podman/netavark bats --no-tempdir-cleanup --print-output-on-failure test/
+Features: test-name=system-tests:@
+Architecture: amd64
+Depends: bats,
+         bind9-dnsutils,
+         dnsmasq,
+         firewalld,
+         ipcalc,
+         iproute2,
+         iptables,
+         iputils-ping,
+         jq,
+         ncat,
+         netavark (>> 1.12),
+         nftables,
+         util-linux,
+         @
+Restrictions: allow-stderr, needs-root, isolation-machine
